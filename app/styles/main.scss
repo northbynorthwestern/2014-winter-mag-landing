@@ -1,0 +1,213 @@
+@import 'bourbon/dist/bourbon';
+@import 'neat/app/assets/stylesheets/neat';
+
+$grand-header-image-url: '../img/raise.jpeg';
+$banner-height: 900px;
+
+@import 'nbnteractive-styles/initialize';
+@import 'nbnteractive-styles/theme/theme';
+
+$mdbp: new-breakpoint(min-width em(600px));
+
+html, body {
+  width: auto !important;
+  overflow-x: hidden !important;
+  font-family: Gill Sans MT;
+}
+
+.content-wrapper {
+  @include outer-container;
+  padding: 1em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Gill Sans MT;
+}
+
+
+header {
+  text-align: center;
+  margin-bottom: 2em;
+
+  h1 {
+    font-size: 3em;
+    margin-bottom: 0em;
+  }
+  h3 {
+    margin-top: 0.25em;
+    font-size: 2em;
+  }
+
+  div.prose {
+    margin-top: 2em;
+    text-align: center;
+  }
+}
+
+
+section {
+
+  padding-top: 3em;
+  padding-bottom: 3em;
+
+  &:nth-of-type(odd) { background-color: darken(#fafafa, 5%); }
+
+  h6 {
+    font-size: 2em;
+    text-align: center;
+    margin-bottom: 1.5em;
+  }
+
+  a {
+    text-decoration: none;
+
+    @include span-columns(12 of 12);
+
+    @include media($mdbp) {
+      &.featured {
+        @include span-columns(8 of 12);
+        @include shift(2);
+      }
+    }
+
+    @include media($large) {
+      &:not(.featured) {
+        @include span-columns(6);
+        @include omega(2n);
+      }
+    }
+
+    background-color: #fafafa;
+    display: block;
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
+    padding: 1em;
+    position: relative;
+
+    h4,
+    h5 {
+      margin-top: 0.5;
+      margin-bottom: 0.5em;
+    }
+
+    h4 {
+      font-weight: 600;
+      margin-bottom: 1em;
+    }
+
+    h5 {
+      font-weight: 300;
+    }
+
+
+    &.featured {
+      text-align: center;
+
+      .image {
+        background-size: cover;
+        background-position: center center;
+        height: 250px;
+        margin-bottom: 1em;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        h2 {
+          font-weight: 900;
+          font-size: 1.75em;
+          color: white;
+          text-transform: uppercase;
+          max-width: 75%;
+        }
+      }
+
+      &#composition .image { @include background-image(linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                                    url("../img/changing-the-composition.jpg")); }
+
+      &#jun-sung-ahn .image { @include background-image(linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                                    url("../img/jun-sung-ahn.jpg")); }
+
+      &#title-nine .image { @include background-image(linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                                    url("../img/title-nine.jpg")); }
+
+      &#grade-escape .image { @include background-image(linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                                    url("../img/grade-escape.jpg")); }
+
+      &#life-advice .image { @include background-image(linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                                    url("../img/life.jpg")); }
+
+      &#streetbeat .image { @include background-image(linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                                    url("../img/streetbeat.jpg")); }
+
+      &#plot-lines .image { @include background-image(linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                                    url("../img/shuffle.jpg")); }
+
+      &#seeking-faith .image { @include background-image(linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                                    url("../img/faith.jpg")); }
+
+      &#sheridan-shuffle .image { @include background-image(linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                                    url("../img/ipod.jpg")); }
+    }
+
+    &:hover {
+      text-decoration: none;
+      background-color: transparentize(#fafafa, 0.4);
+
+      &.featured {
+
+        &#composition .image {
+          background-image: url("../img/changing-the-composition.jpg");
+          background-size: cover;
+          background-position: center center;
+        }
+
+        &#jun-sung-ahn .image { @include background-image(url("../img/jun-sung-ahn.jpg")); }
+        &#title-nine .image { @include background-image(url("../img/title-nine.jpg")); }
+        &#grade-escape .image { @include background-image(url("../img/grade-escape.jpg")); }
+        &#life-advice .image { @include background-image(url("../img/life.jpg")); }
+        &#streetbeat .image { @include background-image(url("../img/streetbeat.jpg")); }
+        &#plot-lines .image { @include background-image(url("../img/shuffle.jpg")); }
+        &#seeking-faith .image { @include background-image(url("../img/faith.jpg")); }
+        &#sheridan-shuffle .image { @include background-image(url("../img/ipod.jpg")); }
+
+        .image {
+          background-size: cover;
+          height: 250px;
+        }
+
+        h2 { display: none;  }
+      }
+    }
+  }
+}
+
+$bp-footer: new-breakpoint(min-width 768px);
+$footer-height: 200px;
+
+footer {
+  @include sans-serif;
+
+  background-color: $nbn-purple;
+  height: $footer-height;
+  color: $white;
+  margin-top: 100px;
+  padding-bottom: .5em;
+  padding-top: .5em;
+  width: 100%;
+
+  .credits p {
+    font-size: .875em;
+    line-height: 1.5em;
+    margin: 0;
+  }
+
+  .credits a {
+    color: $white;
+  }
+}
